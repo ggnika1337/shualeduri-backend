@@ -5,6 +5,7 @@
     // "rootDir": "./src",
     // "outDir": "./dist",
 
+ "allowImportingTsExtensions": true
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
