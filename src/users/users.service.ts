@@ -22,12 +22,40 @@ export async function createUser(body: user) {
   } catch (error) {}
 }
 
-export async function getUsers() {
-  return;
+export async function getUserById(id: string) {
+  try {
+    const user = await usersSchema.findById(id);
+
+    return user;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-export async function editUser() {
-  return;
+export async function getUsers() {
+  try {
+    const users = await usersSchema.find();
+
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function updateUser(id: string, data: any) {
+  try {
+    const user = await usersSchema.findByIdAndUpdate(
+      id,
+      { $set: data },
+      {
+        returnDocument: "after",
+      },
+    );
+
+    return user;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function deleteUser(id: string) {
